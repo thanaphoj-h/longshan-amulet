@@ -1,6 +1,27 @@
+import { useState } from 'react'
+import './index.css'
+import Content from './components/layout/Content'
+import Sidebar from './components/layout/Sidebar'
+import Footer from './components/layout/Footer'
+
+
 function App() {
+
+  const [selectedMenu, setSelectedMenu] = useState('Home')
+
   return (
-    <h1>Longshan Amulets</h1>
+    <div className='app'>
+      <div className='app-body'>
+        <Sidebar 
+          selectedMenu={selectedMenu}
+          onSelectedMenu={setSelectedMenu}
+        />
+        <Content 
+          selectedMenu={selectedMenu}
+        />
+      </div>
+    <Footer />
+    </div>
   )
 }
 
